@@ -54,6 +54,9 @@ class MinMaxScaler:
             res.append(scaled)
         return res
 
+    def fit_transform(self, X: List[List[float]]) -> List[List[float]]:
+        return self.fit(X).transform(X)
+
 class OneHotEncoder:
     def __init__(self):
         self.categories_ = {}
@@ -94,6 +97,9 @@ class SimpleImputer:
 
     def transform(self, X: List[List[Optional[float]]]) -> List[List[float]]:
         return [[row[j] if row[j] is not None else self.statistics_[j] for j in range(len(row))] for row in X]
+
+    def fit_transform(self, X: List[List[Optional[float]]]) -> List[List[float]]:
+        return self.fit(X).transform(X)
 
 class FeatureTransformer_1:
     """Custom feature engineering transformer variant 1."""

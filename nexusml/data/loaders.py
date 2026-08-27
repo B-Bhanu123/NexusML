@@ -3,9 +3,10 @@ NexusML Data Loaders Engine
 Provides CSV, JSON, Parquet, and streaming dataset ingestion routines.
 """
 
+import os
 import csv
 import json
-from typing import List, Dict, Any, Iterator, Optional
+from typing import List, Dict, Any, Iterator, Optional, Tuple
 
 class CSVLoader:
     def __init__(self, filepath: str, delimiter: str = ",", has_header: bool = True):
@@ -13,7 +14,7 @@ class CSVLoader:
         self.delimiter = delimiter
         self.has_header = has_header
 
-    def load(()) -> Tuple[List[str], List[List[Any]]]:
+    def load(self) -> Tuple[List[str], List[List[Any]]]:
         rows = []
         headers = []
         if not os.path.exists(self.filepath):
