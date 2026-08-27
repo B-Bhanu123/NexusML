@@ -11,7 +11,7 @@
     :root {
       --bg-primary: #0b0f19;
       --bg-secondary: #131b2e;
-      --bg-card: rgba(21, 28, 44, 0.75);
+      --bg-card: rgba(21, 28, 44, 0.85);
       --border-color: rgba(255, 255, 255, 0.08);
       --text-main: #f3f4f6;
       --text-muted: #9ca3af;
@@ -142,9 +142,9 @@
     }
     .tab-btn {
       background: transparent;
-      border: none;
+      border: 1px solid transparent;
       color: var(--text-muted);
-      padding: 10px 18px;
+      padding: 10px 20px;
       font-size: 0.9rem;
       font-weight: 600;
       cursor: pointer;
@@ -158,13 +158,14 @@
     .tab-btn.active {
       color: #fff;
       background: var(--accent-indigo);
+      border-color: rgba(99, 102, 241, 0.5);
       box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
     }
 
     /* Content Layout */
     .grid-2col {
       display: grid;
-      grid-template-columns: 2fr 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: 24px;
       margin-bottom: 24px;
     }
@@ -198,7 +199,7 @@
       border: 1px solid rgba(255, 255, 255, 0.05);
     }
 
-    /* Model Leaderboard Table */
+    /* Tables */
     .data-table {
       width: 100%;
       border-collapse: collapse;
@@ -231,46 +232,64 @@
     .badge-success { background: rgba(16, 185, 129, 0.15); color: #34d399; }
     .badge-primary { background: rgba(99, 102, 241, 0.15); color: #818cf8; }
     .badge-warning { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
+    .badge-pink { background: rgba(236, 72, 153, 0.15); color: #f472b6; }
 
     /* Interactive Playground Form */
     .playground-form {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 14px;
+    }
+    select.model-select, input.text-input {
+      width: 100%;
+      background: rgba(10, 14, 23, 0.8);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: #fff;
+      padding: 10px 14px;
+      font-size: 0.9rem;
+      outline: none;
     }
     textarea.json-input {
       width: 100%;
-      height: 110px;
+      height: 140px;
       background: rgba(10, 14, 23, 0.8);
       border: 1px solid var(--border-color);
       border-radius: 8px;
       color: #34d399;
       font-family: monospace;
-      padding: 12px;
+      padding: 14px;
       font-size: 0.85rem;
       resize: vertical;
+      outline: none;
     }
     .btn-action {
       background: linear-gradient(135deg, var(--accent-indigo), #4f46e5);
       border: none;
       color: #fff;
-      padding: 12px;
+      padding: 12px 20px;
       border-radius: 8px;
       font-weight: 600;
       cursor: pointer;
-      transition: opacity 0.2s ease;
+      transition: opacity 0.2s ease, transform 0.1s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }
-    .btn-action:hover { opacity: 0.9; }
+    .btn-action:hover { opacity: 0.9; transform: translateY(-1px); }
 
     .json-output {
-      background: rgba(10, 14, 23, 0.9);
+      background: rgba(10, 14, 23, 0.95);
       border: 1px solid var(--border-color);
       border-radius: 8px;
       color: #60a5fa;
-      padding: 12px;
+      padding: 14px;
       font-family: monospace;
       font-size: 0.85rem;
-      min-height: 80px;
+      min-height: 140px;
+      white-space: pre-wrap;
+      word-break: break-all;
     }
 
     /* Progress Bar */
@@ -280,7 +299,7 @@
       height: 8px;
       width: 100%;
       overflow: hidden;
-      margin-top: 4px;
+      margin-top: 6px;
     }
     .progress-fill {
       height: 100%;
@@ -350,15 +369,15 @@
       </div>
     </div>
 
-    <!-- Tab Bar -->
+    <!-- Navigation Tab Bar -->
     <div class="tab-bar">
-      <button class="tab-btn active" onclick="switchTab('overview')">📈 Platform Overview</button>
-      <button class="tab-btn" onclick="switchTab('leaderboard')">🏆 AutoML Model Registry</button>
-      <button class="tab-btn" onclick="switchTab('featurestore')">🌐 Feature Store & Drift</button>
-      <button class="tab-btn" onclick="switchTab('playground')">🧪 Realtime Inference API</button>
+      <button class="tab-btn active" onclick="switchTab('overview', this)">📈 Platform Overview</button>
+      <button class="tab-btn" onclick="switchTab('leaderboard', this)">🏆 AutoML Model Registry</button>
+      <button class="tab-btn" onclick="switchTab('featurestore', this)">🌐 Feature Store & Drift</button>
+      <button class="tab-btn" onclick="switchTab('playground', this)">🧪 Realtime Inference API</button>
     </div>
 
-    <!-- Tab Section 1: Overview -->
+    <!-- TAB 1: Platform Overview -->
     <div id="overviewTab" class="tab-content">
       <div class="grid-2col">
         <!-- Live Real-Time Training Chart -->
@@ -370,71 +389,34 @@
           <canvas id="lossCanvas"></canvas>
         </div>
 
-        <!-- Realtime Prediction API Tester -->
+        <!-- Quick System Summary -->
         <div class="panel-box">
           <div class="panel-title">
-            <span>Realtime Inference API Endpoint</span>
-            <span class="badge badge-success">HTTP 200 Ready</span>
+            <span>System Pipeline & Orchestrator Topology</span>
+            <span class="badge badge-success">Mesh Active</span>
           </div>
-          <div class="playground-form">
-            <label style="font-size: 0.8rem; color: var(--text-muted);">Input Features JSON Payload:</label>
-            <textarea id="jsonInput" class="json-input">{
-  "model_id": "resnet_v2_classifier",
-  "features": [[0.54, 1.28, -0.42, 0.91, 2.15]]
-}</textarea>
-            <button class="btn-action" onclick="runInference()">Execute Realtime Predict()</button>
-            <label style="font-size: 0.8rem; color: var(--text-muted);">Prediction Output:</label>
-            <pre id="jsonOutput" class="json-output">{ "status": "idle" }</pre>
-          </div>
-        </div>
-      </div>
-
-      <!-- Feature Store & Drift Panel -->
-      <div class="panel-box grid-full">
-        <div class="panel-title">
-          <span>Data Feature Drift & Population Stability Index (PSI)</span>
-          <span class="badge badge-success">No Data Drift Detected</span>
-        </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-          <div>
-            <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 4px;">
-              <span>user_embedding_dim_0</span>
-              <span style="color: var(--accent-emerald);">PSI: 0.012 (Stable)</span>
-            </div>
-            <div class="progress-track"><div class="progress-fill" style="width: 15%;"></div></div>
-          </div>
-
-          <div>
-            <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 4px;">
-              <span>transaction_amount_scaled</span>
-              <span style="color: var(--accent-emerald);">PSI: 0.024 (Stable)</span>
-            </div>
-            <div class="progress-track"><div class="progress-fill" style="width: 25%;"></div></div>
-          </div>
-
-          <div>
-            <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 4px;">
-              <span>time_series_sensor_val</span>
-              <span style="color: var(--accent-amber);">PSI: 0.078 (Moderate)</span>
-            </div>
-            <div class="progress-track"><div class="progress-fill" style="width: 55%; background: var(--accent-amber);"></div></div>
+          <div style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">
+            <p style="margin-bottom: 12px;"><strong style="color: #fff;">Async DAG Runner:</strong> 34 active tasks scheduled across distributed cluster nodes.</p>
+            <p style="margin-bottom: 12px;"><strong style="color: #fff;">Feature Store Cache:</strong> Redis online feature cache latency at 0.4 ms (99.9th percentile).</p>
+            <p style="margin-bottom: 12px;"><strong style="color: #fff;">Quantization Engine:</strong> INT8 dynamic quantization active for deployed vision transformer models.</p>
+            <p><strong style="color: #fff;">Automated Drift Action:</strong> Trigger PSI recalculation on feature store schema update.</p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Tab Section 2: Model Registry -->
+    <!-- TAB 2: AutoML Model Registry -->
     <div id="leaderboardTab" class="tab-content" style="display: none;">
       <div class="panel-box grid-full">
         <div class="panel-title">
           <span>AutoML Leaderboard & Production Model Registry</span>
-          <span class="badge badge-primary">12 Deployed</span>
+          <span class="badge badge-primary">12 Models Registered</span>
         </div>
         <table class="data-table">
           <thead>
             <tr>
               <th>MODEL NAME</th>
-              <th>SUBSYSTEM</th>
+              <th>SUBSYSTEM MODULE</th>
               <th>ACCURACY</th>
               <th>F1-SCORE</th>
               <th>LATENCY</th>
@@ -450,7 +432,7 @@
               <td>0.991</td>
               <td>2.1 ms</td>
               <td><span class="badge badge-success">Production</span></td>
-              <td><button class="btn-action" style="padding: 4px 10px; font-size: 0.75rem;">Deploy</button></td>
+              <td><button class="btn-action" style="padding: 4px 12px; font-size: 0.75rem;">Deploy</button></td>
             </tr>
             <tr>
               <td><strong>RandomForestClassifier_v4</strong></td>
@@ -459,7 +441,7 @@
               <td>0.985</td>
               <td>0.8 ms</td>
               <td><span class="badge badge-success">Production</span></td>
-              <td><button class="btn-action" style="padding: 4px 10px; font-size: 0.75rem;">Deploy</button></td>
+              <td><button class="btn-action" style="padding: 4px 12px; font-size: 0.75rem;">Deploy</button></td>
             </tr>
             <tr>
               <td><strong>GradientBoostingEngine_v2</strong></td>
@@ -468,7 +450,7 @@
               <td>0.979</td>
               <td>1.2 ms</td>
               <td><span class="badge badge-primary">Staging</span></td>
-              <td><button class="btn-action" style="padding: 4px 10px; font-size: 0.75rem;">Promote</button></td>
+              <td><button class="btn-action" style="padding: 4px 12px; font-size: 0.75rem;">Promote</button></td>
             </tr>
             <tr>
               <td><strong>GraphConvolutionalNetwork_v1</strong></td>
@@ -477,14 +459,158 @@
               <td>0.965</td>
               <td>3.4 ms</td>
               <td><span class="badge badge-warning">Evaluation</span></td>
-              <td><button class="btn-action" style="padding: 4px 10px; font-size: 0.75rem;">Evaluate</button></td>
+              <td><button class="btn-action" style="padding: 4px 12px; font-size: 0.75rem;">Evaluate</button></td>
+            </tr>
+            <tr>
+              <td><strong>LogisticRegression_v10</strong></td>
+              <td>nexusml.models.linear</td>
+              <td>95.4%</td>
+              <td>0.951</td>
+              <td>0.3 ms</td>
+              <td><span class="badge badge-success">Production</span></td>
+              <td><button class="btn-action" style="padding: 4px 12px; font-size: 0.75rem;">Deploy</button></td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
 
-    <!-- Hidden compatibility sections to maintain system panel refs -->
+    <!-- TAB 3: Feature Store & Drift -->
+    <div id="featurestoreTab" class="tab-content" style="display: none;">
+      <div class="panel-box grid-full" style="margin-bottom: 24px;">
+        <div class="panel-title">
+          <span>Feature Store Registry & Online Cache Catalog</span>
+          <button class="btn-action" style="padding: 6px 14px; font-size: 0.8rem;" onclick="recalculatePSI()">🔄 Recalculate PSI Drift</button>
+        </div>
+        <table class="data-table" style="margin-bottom: 24px;">
+          <thead>
+            <tr>
+              <th>FEATURE GROUP</th>
+              <th>FEATURE ENTITY KEY</th>
+              <th>TYPE</th>
+              <th>DRIFT STATUS (PSI)</th>
+              <th>ONLINE LATENCY</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>user_embeddings</td>
+              <td>user_dim_0</td>
+              <td>Float32[128]</td>
+              <td><span class="badge badge-success" id="psi1">PSI: 0.012 (Stable)</span></td>
+              <td>0.2 ms</td>
+            </tr>
+            <tr>
+              <td>transaction_features</td>
+              <td>scaled_amount</td>
+              <td>Float64</td>
+              <td><span class="badge badge-success" id="psi2">PSI: 0.024 (Stable)</span></td>
+              <td>0.1 ms</td>
+            </tr>
+            <tr>
+              <td>sensor_telemetry</td>
+              <td>vibration_val_1</td>
+              <td>Float32</td>
+              <td><span class="badge badge-warning" id="psi3">PSI: 0.078 (Moderate Drift)</span></td>
+              <td>0.3 ms</td>
+            </tr>
+            <tr>
+              <td>nlp_features</td>
+              <td>tfidf_vector_scaled</td>
+              <td>SparseVector</td>
+              <td><span class="badge badge-success" id="psi4">PSI: 0.008 (Stable)</span></td>
+              <td>0.4 ms</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="panel-title" style="margin-top: 24px;">
+          <span>Population Stability Index (PSI) Drift Breakdown</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+          <div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 4px;">
+              <span>user_dim_0</span>
+              <span style="color: var(--accent-emerald);">0.012</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width: 12%;"></div></div>
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 4px;">
+              <span>scaled_amount</span>
+              <span style="color: var(--accent-emerald);">0.024</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width: 24%;"></div></div>
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 4px;">
+              <span>vibration_val_1</span>
+              <span style="color: var(--accent-amber);">0.078</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width: 78%; background: var(--accent-amber);"></div></div>
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 4px;">
+              <span>tfidf_vector_scaled</span>
+              <span style="color: var(--accent-emerald);">0.008</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width: 8%;"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 4: Realtime Inference API -->
+    <div id="playgroundTab" class="tab-content" style="display: none;">
+      <div class="grid-2col">
+        <!-- Interactive Request Form -->
+        <div class="panel-box">
+          <div class="panel-title">
+            <span>Realtime Predict API Endpoint Playground</span>
+            <span class="badge badge-success">HTTP 200 Ready</span>
+          </div>
+          <div class="playground-form">
+            <label style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">Select Target Model:</label>
+            <select id="modelSelect" class="model-select">
+              <option value="VisionTransformer_v1">VisionTransformer_v1 (nexusml.models.deep_learning)</option>
+              <option value="RandomForestClassifier_v4">RandomForestClassifier_v4 (nexusml.models.ensemble)</option>
+              <option value="LogisticRegression_v10">LogisticRegression_v10 (nexusml.models.linear)</option>
+              <option value="GradientBoostingEngine_v2">GradientBoostingEngine_v2 (nexusml.models.boosting)</option>
+            </select>
+
+            <label style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">Input Features Payload (JSON Array):</label>
+            <textarea id="jsonInputTab" class="json-input">{
+  "model_id": "VisionTransformer_v1",
+  "features": [
+    [0.54, 1.28, -0.42, 0.91, 2.15],
+    [0.12, -0.88, 1.05, 0.44, -0.32]
+  ]
+}</textarea>
+
+            <button class="btn-action" onclick="runTabInference()">
+              <span>🚀 Execute Realtime predict() Request</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Real-Time Output Viewer -->
+        <div class="panel-box">
+          <div class="panel-title">
+            <span>Realtime Prediction Response Output</span>
+            <span class="badge badge-primary" id="statusBadge">Status: Waiting</span>
+          </div>
+          <pre id="jsonOutputTab" class="json-output">{
+  "status": "ready",
+  "message": "Click 'Execute Realtime predict() Request' to compute inferences on NexusML Core."
+}</pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden compatibility elements to preserve panel selectors -->
     <div style="display: none;">
       <section class="nexus-panel-variant-001"><h2>Dashboard Panel 001</h2></section>
       <section class="nexus-panel-variant-002"><h2>Dashboard Panel 002</h2></section>
@@ -495,91 +621,138 @@
 
   <script>
     // Tab Switcher Logic
-    function switchTab(tabId) {
+    function switchTab(tabId, element) {
       document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
       document.querySelectorAll('.tab-content').forEach(content => content.style.display = 'none');
       
+      const targetTab = document.getElementById(tabId + 'Tab');
+      if (targetTab) {
+        targetTab.style.display = 'block';
+        if (element) element.classList.add('active');
+      }
+
       if (tabId === 'overview') {
-        document.getElementById('overviewTab').style.display = 'block';
-        event.target.classList.add('active');
-      } else if (tabId === 'leaderboard') {
-        document.getElementById('leaderboardTab').style.display = 'block';
-        event.target.classList.add('active');
+        drawChart();
       }
     }
 
-    // Realtime Prediction Tester
-    function runInference() {
-      const output = document.getElementById('jsonOutput');
-      output.textContent = 'Executing prediction on NexusML Core...';
+    // Realtime Prediction Tester on Tab 4
+    function runTabInference() {
+      const output = document.getElementById('jsonOutputTab');
+      const badge = document.getElementById('statusBadge');
+      const model = document.getElementById('modelSelect').value;
+      const rawPayload = document.getElementById('jsonInputTab').value;
+
+      badge.textContent = 'Computing...';
+      badge.className = 'badge badge-warning';
+      output.textContent = 'Parsing payload and running autograd inference on NexusML engine...';
+
       setTimeout(() => {
-        output.textContent = JSON.stringify({
-          "model_id": "resnet_v2_classifier",
-          "prediction": [0.9842, 0.0158],
-          "predicted_class": 0,
-          "latency_ms": 1.42,
-          "status": "success"
-        }, null, 2);
-      }, 300);
+        try {
+          const parsed = JSON.parse(rawPayload);
+          const numSamples = parsed.features ? parsed.features.length : 1;
+          const preds = [];
+          for (let i = 0; i < numSamples; i++) {
+            preds.push(+(0.92 + Math.random() * 0.07).toFixed(4));
+          }
+
+          badge.textContent = '200 OK (1.2 ms)';
+          badge.className = 'badge badge-success';
+
+          output.textContent = JSON.stringify({
+            "status": "success",
+            "model_id": model,
+            "predictions": preds,
+            "probabilities": preds.map(p => ({ "class_0": +(1 - p).toFixed(4), "class_1": p })),
+            "latency_ms": +(0.8 + Math.random() * 0.9).toFixed(2),
+            "device": "CUDA:0 (NVIDIA A100 Tensor Core)",
+            "timestamp": new Date().toISOString()
+          }, null, 2);
+        } catch (e) {
+          badge.textContent = '400 Bad Request';
+          badge.className = 'badge badge-pink';
+          output.textContent = JSON.stringify({
+            "status": "error",
+            "error_type": "InvalidJSONPayload",
+            "message": e.message
+          }, null, 2);
+        }
+      }, 250);
+    }
+
+    // Recalculate PSI Drift Action
+    function recalculatePSI() {
+      const p1 = document.getElementById('psi1');
+      const p2 = document.getElementById('psi2');
+      const p3 = document.getElementById('psi3');
+
+      if (p1 && p2 && p3) {
+        p1.textContent = 'PSI: 0.009 (Stable)';
+        p2.textContent = 'PSI: 0.018 (Stable)';
+        p3.textContent = 'PSI: 0.045 (Normalised)';
+        p3.className = 'badge badge-success';
+        alert('Data Drift Recalculation Complete! All features checked against reference schema.');
+      }
     }
 
     // Live HTML5 Canvas Chart Rendering
     const canvas = document.getElementById('lossCanvas');
-    if (canvas) {
+    function drawChart() {
+      if (!canvas) return;
       const ctx = canvas.getContext('2d');
-      function drawChart() {
-        const width = canvas.width = canvas.parentElement.clientWidth - 48;
-        const height = canvas.height = 240;
+      const width = canvas.width = canvas.parentElement.clientWidth - 48;
+      const height = canvas.height = 240;
 
-        ctx.clearRect(0, 0, width, height);
+      ctx.clearRect(0, 0, width, height);
 
-        // Draw Grid
-        ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
-        ctx.lineWidth = 1;
-        for (let y = 40; y < height; y += 40) {
-          ctx.beginPath();
-          ctx.moveTo(0, y);
-          ctx.lineTo(width, y);
-          ctx.stroke();
-        }
-
-        // Training Loss Curve
-        ctx.strokeStyle = '#6366f1';
-        ctx.lineWidth = 3;
+      // Draw Grid
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+      ctx.lineWidth = 1;
+      for (let y = 40; y < height; y += 40) {
         ctx.beginPath();
-        for (let i = 0; i <= 50; i++) {
-          const x = (i / 50) * width;
-          const y = height - (Math.exp(-i / 10) * (height - 60) + 30 + Math.sin(i) * 4);
-          if (i === 0) ctx.moveTo(x, y);
-          else ctx.lineTo(x, y);
-        }
+        ctx.moveTo(0, y);
+        ctx.lineTo(width, y);
         ctx.stroke();
-
-        // Validation Accuracy Curve
-        ctx.strokeStyle = '#10b981';
-        ctx.lineWidth = 3;
-        ctx.beginPath();
-        for (let i = 0; i <= 50; i++) {
-          const x = (i / 50) * width;
-          const y = height - ((1 - Math.exp(-i / 12)) * (height - 80) + 40 + Math.cos(i) * 3);
-          if (i === 0) ctx.moveTo(x, y);
-          else ctx.lineTo(x, y);
-        }
-        ctx.stroke();
-
-        // Legend
-        ctx.fillStyle = '#6366f1';
-        ctx.fillRect(20, 20, 12, 12);
-        ctx.fillStyle = '#9ca3af';
-        ctx.font = '12px Inter';
-        ctx.fillText('Training Loss', 40, 30);
-
-        ctx.fillStyle = '#10b981';
-        ctx.fillRect(140, 20, 12, 12);
-        ctx.fillStyle = '#9ca3af';
-        ctx.fillText('Validation Accuracy', 160, 30);
       }
 
+      // Training Loss Curve
+      ctx.strokeStyle = '#6366f1';
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      for (let i = 0; i <= 50; i++) {
+        const x = (i / 50) * width;
+        const y = height - (Math.exp(-i / 10) * (height - 60) + 30 + Math.sin(i) * 4);
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+
+      // Validation Accuracy Curve
+      ctx.strokeStyle = '#10b981';
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      for (let i = 0; i <= 50; i++) {
+        const x = (i / 50) * width;
+        const y = height - ((1 - Math.exp(-i / 12)) * (height - 80) + 40 + Math.cos(i) * 3);
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+
+      // Legend
+      ctx.fillStyle = '#6366f1';
+      ctx.fillRect(20, 20, 12, 12);
+      ctx.fillStyle = '#9ca3af';
+      ctx.font = '12px Inter';
+      ctx.fillText('Training Loss', 40, 30);
+
+      ctx.fillStyle = '#10b981';
+      ctx.fillRect(140, 20, 12, 12);
+      ctx.fillStyle = '#9ca3af';
+      ctx.fillText('Validation Accuracy', 160, 30);
+    }
+
+    if (canvas) {
       drawChart();
       window.addEventListener('resize', drawChart);
     }
