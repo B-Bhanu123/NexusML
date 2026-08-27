@@ -1,0 +1,299 @@
+:root { --bg-primary: #0a0e17; --accent: #6366f1; }
+
+.nexus-panel-variant-001 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-002 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-003 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-004 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-005 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-006 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-007 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-008 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-009 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-010 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-011 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-012 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-013 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-014 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-015 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-016 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-017 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-018 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-019 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-020 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-021 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-022 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-023 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-024 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-025 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-026 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-027 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-028 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-029 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-030 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-031 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-032 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-033 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-034 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-035 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-036 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-037 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-038 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-039 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-040 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-041 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-042 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-043 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-044 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-045 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-046 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-047 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-048 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-049 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-050 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-051 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-052 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-053 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-054 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-055 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-056 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-057 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-058 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-059 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-060 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-061 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-062 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-063 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-064 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-065 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-066 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-067 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-068 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-069 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-070 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-071 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-072 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-073 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-074 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-075 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-076 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-077 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-078 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-079 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-080 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-081 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-082 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-083 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-084 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-085 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-086 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-087 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-088 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-089 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-090 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-091 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-092 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-093 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-094 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-095 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-096 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-097 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-098 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-099 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-100 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-101 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-102 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-103 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-104 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-105 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-106 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-107 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-108 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-109 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-110 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-111 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-112 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-113 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-114 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-115 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-116 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-117 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-118 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-119 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-120 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-121 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-122 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-123 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-124 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-125 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-126 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-127 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-128 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-129 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-130 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-131 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-132 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-133 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-134 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-135 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-136 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-137 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-138 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-139 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-140 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-141 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-142 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-143 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-144 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-145 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-146 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-147 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-148 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
+
+.nexus-panel-variant-149 { background: var(--bg-primary); border-radius: 8px; padding: 16px; margin: 10px; }
